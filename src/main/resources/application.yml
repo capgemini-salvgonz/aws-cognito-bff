@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_
+
+com:
+  tocode:
+    mx:
+      cognito:
+        clientId: 6kq5q5i96mkhshcfovtechsgsk
+        awsRegion: us-east-2
+        userPoolId: us-east-2_
