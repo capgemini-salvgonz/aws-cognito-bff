@@ -26,9 +26,9 @@
 */
 package com.tocode.mx.application.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,10 +37,8 @@ import org.springframework.web.bind.annotation.RestController;
  * The Class HealthController.
  */
 @RestController
+@CrossOrigin
 public class HealthController {
-
-   @Value("${com.tocode.mx.cognito.clientId}")
-   private String cognitoClientId;
   
   /**
    * Gets the application status.
@@ -49,9 +47,7 @@ public class HealthController {
    */
   @GetMapping(value = "/api/health")
   public ResponseEntity<String> getApplicationStatus(
-      @RequestHeader(value = "Authorization", required = true) String authorization) {
-    
-    System.out.println(cognitoClientId);
+      @RequestHeader(value = "Authorization", required = true) String authorization) {    
     System.out.println(authorization);
     
     return new ResponseEntity<>("Application is up and running", HttpStatus.OK);

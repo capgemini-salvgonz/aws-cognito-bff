@@ -20,31 +20,34 @@
 * any other work released this way by its authors.  You can apply it to
 * your programs, too.
 *
-* Nombre de archivo: ApplicationStarter.java 
+* Nombre de archivo: ApplicationConfiguration.java 
 * Autor: salvgonz 
-* Fecha de creación: Mar 14, 2021 
+* Fecha de creación: Mar 16, 2021 
 */
-package com.tocode.mx;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+
+package com.tocode.mx.infraestructure;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * The Class ApplicationStarter.
+ * The Class ApplicationConfiguration.
  */
-@SpringBootApplication
-@ComponentScan
-@EnableAutoConfiguration
-public class ApplicationStarter {
+@Configuration
+@EnableWebSecurity
+public class ApplicationConfiguration extends WebSecurityConfigurerAdapter {
 
   /**
-   * The main method.
+   * Configure.
    *
-   * @param args the arguments
+   * @param httpSecurity the http security
+   * @throws Exception the exception
    */
-  public static void main(String[] args) {
-    SpringApplication.run(ApplicationStarter.class, args);
+  @Override
+  protected void configure(HttpSecurity httpSecurity) throws Exception {
+    httpSecurity.cors();
   }
 }
