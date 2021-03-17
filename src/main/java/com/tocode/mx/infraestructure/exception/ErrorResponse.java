@@ -20,34 +20,36 @@
 * any other work released this way by its authors.  You can apply it to
 * your programs, too.
 *
-* Nombre de archivo: ApplicationConfiguration.java 
+* Nombre de archivo: ErrorResponse.java 
 * Autor: salvgonz 
 * Fecha de creación: Mar 16, 2021 
 */
 
+package com.tocode.mx.infraestructure.exception;
 
-package com.tocode.mx.infraestructure;
+import lombok.Getter;
+import lombok.Setter;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * The Class ApplicationConfiguration.
+ * The Class ErrorResponse.
  */
-@Configuration
-@EnableWebSecurity
-public class ApplicationConfiguration extends WebSecurityConfigurerAdapter {
-
-  /**
-   * Configure.
-   *
-   * @param httpSecurity the http security
-   * @throws Exception the exception
-   */
-  @Override
-  protected void configure(HttpSecurity httpSecurity) throws Exception {
-    httpSecurity.cors();
-  }
+@Getter
+@Setter
+public class ErrorResponse {
+  
+  /** The message. */
+  private String message;
+  
+  /** The code. */
+  private Integer code;
+  
+  /** The error code. */
+  private Integer errorCode;
+  
+  /** The type. */
+  private String type;
+  
+  /** The more info. */
+  private String moreInfo;
 }

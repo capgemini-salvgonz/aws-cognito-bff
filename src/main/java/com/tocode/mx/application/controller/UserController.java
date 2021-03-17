@@ -27,9 +27,8 @@
 
 package com.tocode.mx.application.controller;
 
+import com.tocode.mx.application.dto.CognitoUser;
 import com.tocode.mx.application.service.AwsCognitoService;
-import com.tocode.mx.model.CognitoUser;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
@@ -46,7 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
  * The Class UserController.
  */
 @RestController
-@CrossOrigin("*")
+@CrossOrigin
 @Slf4j
 public class UserController {
   

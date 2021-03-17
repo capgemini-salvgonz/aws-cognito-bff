@@ -24,19 +24,16 @@
 * Autor: salvgonz 
 * Fecha de creación: Mar 14, 2021 
 */
+
 package com.tocode.mx;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 /**
  * The Class ApplicationStarter.
  */
 @SpringBootApplication
-@ComponentScan
-@EnableAutoConfiguration
 public class ApplicationStarter {
 
   /**
@@ -46,5 +43,6 @@ public class ApplicationStarter {
    */
   public static void main(String[] args) {
     SpringApplication.run(ApplicationStarter.class, args);
-  }
+  } 
+  
 }

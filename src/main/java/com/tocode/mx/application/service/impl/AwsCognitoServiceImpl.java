@@ -27,10 +27,9 @@
 
 package com.tocode.mx.application.service.impl;
 
+import com.tocode.mx.application.dto.CognitoUser;
 import com.tocode.mx.application.service.AwsCognitoService;
-import com.tocode.mx.infraestructure.AwsCognitoRSAKeyProvider;
-import com.tocode.mx.model.CognitoUser;
-
+import com.tocode.mx.infraestructure.security.AwsCognitoRSAKeyProvider;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -40,6 +39,7 @@ import com.auth0.jwt.interfaces.RSAKeyProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+
 /**
  * The Class AwsCognitoServiceImpl.
  */
@@ -81,9 +81,6 @@ public class AwsCognitoServiceImpl implements AwsCognitoService {
     user.setPhoneNumber(jwt.getClaims().get("phone_number").asString());
     user.setCognitoUserName(jwt.getClaims().get("cognito:username").asString());
     user.setEmail(jwt.getClaims().get("email").asString());
-    
-    System.out.println(jwt.getClaims().get("auth_time").asString());
-    System.out.println(jwt.getClaims());    
     
     return user;
   }

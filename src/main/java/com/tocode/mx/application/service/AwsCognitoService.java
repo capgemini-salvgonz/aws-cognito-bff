@@ -27,7 +27,7 @@
 
 package com.tocode.mx.application.service;
 
-import com.tocode.mx.model.CognitoUser;
+import com.tocode.mx.application.dto.CognitoUser;
 
 /**
  * The Interface AwsCognitoService.

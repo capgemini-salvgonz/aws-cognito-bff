@@ -25,7 +25,7 @@
 * Fecha de creación: Mar 15, 2021 
 */
 
-package com.tocode.mx.model;
+package com.tocode.mx.application.dto;
 
 import lombok.Getter;
 import lombok.Setter;

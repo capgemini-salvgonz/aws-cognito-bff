@@ -25,7 +25,7 @@
 * Fecha de creación: Mar 15, 2021 
 */
 
-package com.tocode.mx.infraestructure;
+package com.tocode.mx.infraestructure.security;
 
 import com.auth0.jwk.Jwk;
 import com.auth0.jwk.JwkProvider;

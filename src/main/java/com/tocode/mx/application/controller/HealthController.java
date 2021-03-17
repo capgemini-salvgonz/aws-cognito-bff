@@ -32,12 +32,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The Class HealthController.
  */
 @RestController
 @CrossOrigin
+@Slf4j
 public class HealthController {
   
   /**
@@ -48,8 +50,8 @@ public class HealthController {
   @GetMapping(value = "/api/health")
   public ResponseEntity<String> getApplicationStatus(
       @RequestHeader(value = "Authorization", required = true) String authorization) {    
-    System.out.println(authorization);
-    
+    log.info(authorization);
+     
     return new ResponseEntity<>("Application is up and running", HttpStatus.OK);
   }
 }
