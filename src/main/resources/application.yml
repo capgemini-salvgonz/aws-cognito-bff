@@ -1,15 +1,9 @@
 server:
   port: 8080
 
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: https://cognito-idp.us-east-2.amazonaws.com/????
 tocode:
   cognito:
-    jwks: https://cognito-idp.us-east-2.amazonaws.com/????/.well-known/jwks.json
+    jwks: https://cognito-idp.us-east-2.amazonaws.com/?????/.well-known/jwks.json
 
 logging:
   level:
