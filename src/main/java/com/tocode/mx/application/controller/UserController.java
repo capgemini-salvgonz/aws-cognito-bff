@@ -28,7 +28,7 @@
 package com.tocode.mx.application.controller;
 
 import com.tocode.mx.application.dto.CognitoUser;
-import com.tocode.mx.application.service.AwsCognitoService;
+
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpStatus;
@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * The Class UserController.
@@ -48,18 +48,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @Slf4j
 public class UserController {
-  
-  /** The cognito. */
-  private AwsCognitoService cognito;
-  
-  /**
-   * Instantiates a new user controller.
-   *
-   * @param cognitoService the cognito service
-   */
-  public UserController(AwsCognitoService cognitoService) {
-    this.cognito = cognitoService;
-  }  
 
   /**
    * Gets the user.
@@ -70,14 +58,15 @@ public class UserController {
    */
   @GetMapping(value = "/api/users/{userId}")
   public ResponseEntity<CognitoUser> getUser(
+      HttpServletRequest request,
       @PathVariable(value = "userId") Integer userId, 
       @RequestHeader(value = "Authorization", required = true) String authorization) {
     
     log.info("userId: [{}]", userId);
     log.info("Authorization: [{}]", authorization);
+    log.info("User [{}]", request.getAttribute("user"));
     
-    CognitoUser user = userId == 0 ? cognito.validateToken(authorization) : null;
-    log.info(user.toString());
+    CognitoUser user = userId == 0 ? (CognitoUser)request.getAttribute("user") : null;    
     
     return new ResponseEntity<>(user, HttpStatus.OK);
   }

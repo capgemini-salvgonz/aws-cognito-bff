@@ -30,6 +30,7 @@ package com.tocode.mx.application.service.impl;
 import com.tocode.mx.application.dto.CognitoUser;
 import com.tocode.mx.application.service.AwsCognitoService;
 import com.tocode.mx.infraestructure.security.AwsCognitoRSAKeyProvider;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -80,9 +81,9 @@ public class AwsCognitoServiceImpl implements AwsCognitoService {
     user.setNickName(jwt.getClaims().get("nickname").asString());
     user.setPhoneNumber(jwt.getClaims().get("phone_number").asString());
     user.setCognitoUserName(jwt.getClaims().get("cognito:username").asString());
-    user.setEmail(jwt.getClaims().get("email").asString());
+    user.setEmail(jwt.getClaims().get("email").asString());    
+    //System.out.println(jwt.getClaims().get("auth_time").asLong());
     
     return user;
   }
-
 }

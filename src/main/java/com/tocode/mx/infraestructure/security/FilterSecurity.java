@@ -90,6 +90,7 @@ public class FilterSecurity extends OncePerRequestFilter {
     log.info("User [{}]", user.getNickName());
     SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(
         user.getNickName(), user.getCognitoUserName(), new ArrayList<>()));
+    request.setAttribute("user", user);
     filterChain.doFilter(request, response);
   }
 }
